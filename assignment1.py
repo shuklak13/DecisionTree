@@ -1,6 +1,6 @@
 #Currently need to:
-#	test ID3, see if it makes a minimalist decision tree
-#	add ID3 algo
+#	complete DecisionTree initialization (I moved ID3 into that)
+#	 	make bestClassifier() method
 
 #run with
 #python assignment1.py 0 0 training_set.csv validation_set.csv test_set.csv yes
@@ -25,7 +25,7 @@ for example in trainingSetFile:
 	else:
 		trainingSet.append(example)
 
-dTree = ID3algo(attributes, trainingSet)
+dTree = DecisionTree(attributes, trainingSet)
 dTree.printOut()
 
 validationSet = argv[4]

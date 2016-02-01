@@ -1,19 +1,22 @@
 from genericTree import tree
 
 #creates and returns a decision tree created from training set on attributes
-def ID3algo(attributes, trainingSet):
+#def ID3algo(attributes, trainingSet):
+#	uniformityResults = testUniformity(trainingSet)
+#	if uniformityResults is not None:
+#		return uniformityResults
+#
+#	attributesResults = testAttributes(attributes, trainingSet)
+#	if attributesResults is not None:
+#		return attributesResults
+#
+#	#ADD ID3 ALGO HERE
+#	A = bestClassifier()
+#	
+#	return dTree
 	
-	uniformityResults = testUniformity(trainingSet)
-	if uniformityResults is not None:
-		return uniformityResults
-
-	attributesResults = testAttributes(attributes, trainingSet)
-	if attributesResults is not None:
-		return attributesResults
-
-	print "is not uniform, has attributes"
-	#ADD ID3 ALGO HERE
-	return dTree
+def bestClassifier():
+	
 
 def testUniformity(trainingSet):
 	uniformity = isUniform(trainingSet)
@@ -56,5 +59,20 @@ def countPositiveNegativeTotal(examples):
 	return {"Positive": positive, 
 		"Negative": size - positive, "Total": size}
 
-class decisionTree(tree):
-	attributes = []
+class DecisionTree(Tree):
+	def __init__(self, decisionAttribute = None, attributes, value):
+		self.decisionAttribute = decisionAttribute
+		self.attributes = attributes
+		Tree.__init__(self, value)
+		
+		uniformityResults = testUniformity(trainingSet)
+		if uniformityResults is not None:
+			return uniformityResults
+	
+		attributesResults = testAttributes(attributes, trainingSet)
+		if attributesResults is not None:
+			return attributesResults
+	
+		#ADD ID3 ALGO HERE
+		A = bestClassifier()
+		
