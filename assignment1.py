@@ -22,7 +22,8 @@ trainingSet = []
 for example in trainingSetFile:
 	if len(attributes) == 0:
 		attributes = example
-	trainingSet.append(example)
+	else:
+		trainingSet.append(example)
 
 dTree = ID3algo(attributes, trainingSet)
 dTree.printOut()

@@ -1,13 +1,12 @@
 from genericTree import tree
 
 #creates and returns a decision tree created from training set on attributes
-def ID3algo(trainingSet, attributes):
-	print "testing uniformity"
+def ID3algo(attributes, trainingSet):
+	
 	uniformityResults = testUniformity(trainingSet)
 	if uniformityResults is not None:
 		return uniformityResults
 
-	print "testing attributes"
 	attributesResults = testAttributes(attributes, trainingSet)
 	if attributesResults is not None:
 		return attributesResults
@@ -40,22 +39,22 @@ def isUniform(trainingSet):
 	elif 	numberOf["Negative"] == numberOf["Total"]:	return "Negative"
 	else:												return False
 
-def positiveOrNegative(trainingSet):
-	numberOf = countPositiveNegativeTotal(trainingSet)
+def positiveOrNegative(examples):
+	numberOf = countPositiveNegativeTotal(examples)
 	if numberOf["Positive"] > numberOf["Negative"]:
 		return "Positive"
 	else:
 		return "Negative"
 
-def countPositiveNegativeTotal(trainingSet):
-	trainingSize = 0
-	trainingPositive = 0
-	for example in trainingSet:
-		trainingSize += 1
+def countPositiveNegativeTotal(examples):
+	size = 0
+	positive = 0
+	for example in examples:
+		size += 1
 		if example[-1] == "1":
-			trainingPositive += 1
-	return {"Positive": trainingPositive, 
-		"Negative": trainingSize - trainingPositive, "Total": trainingSize}
+			positive += 1
+	return {"Positive": positive, 
+		"Negative": size - positive, "Total": size}
 
 class decisionTree(tree):
 	attributes = []
