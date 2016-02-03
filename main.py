@@ -1,13 +1,13 @@
 #Currently need to:
-#	complete DecisionTree initialization (I moved ID3 into that)
-#	 	make bestClassifier() method
+#	test splitExamples
+#	complete DecisionTree ID3 algo / initialization
+#	make bestClassifier() method
 
 #run with
 #python assignment1.py 0 0 training_set.csv validation_set.csv test_set.csv yes
 
 from sys import argv
 import csv
-from genericTree import *
 from ID3 import *
 
 ##############################################################################
@@ -18,7 +18,7 @@ K = argv[2]	#used in post-pruning
 attributes = []
 
 trainingSetFile = csv.reader(open(argv[3], 'r'))
-trainingSet = []
+trainingSet = []	#list of lists (2D Array!)
 for example in trainingSetFile:
 	if len(attributes) == 0:
 		attributes = example
