@@ -12,6 +12,7 @@ class DecisionTree(Tree):
 			return terminate
 	
 		self.decisionAttribute = bestClassifier()
+		self.classification = positiveOrNegative(trainingSet)
 		
 		self.children = createChildren(attributes, trainingSet)
 		
@@ -37,3 +38,12 @@ class DecisionTree(Tree):
 			
 		return [leftChild, rightChild]
 		
+
+	#I KNOW this doesn't work lol, fix later
+	def printOut(self, level=0):
+		print self.__repr__(level)
+	def __repr__(self, level=0):
+		output = "| "*level + self.decisionAttribute + " = : " + self.classification + "\n"
+		for child in self.children:
+			output += child.__repr__(level+1)
+		return output

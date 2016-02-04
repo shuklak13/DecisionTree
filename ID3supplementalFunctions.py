@@ -1,24 +1,33 @@
 from math import log
 
-def bestClassifier(attributes, trainingExamples):
-	entropy = calculateEntropy(trainingExamples)
+#heuristic is calculateEntropy by default
+#Set to calculateVarianceImpurity to do the Variance Impurity Heuristic instead
+def bestClassifier(attributes, trainingExamples, heuristicAlgo = calculateEntropy):
+	heuristic = heuristicAlgo(trainingExamples)
 	gainz = []
 	for attrIndex in 0:(length(attributes)-1):
 		childrenExamples = splitExamples(trainingExamples, attrIndex)
-		gain = entropy 
+		gain = heuristic 
 			- length(childrenExamples["Positive"]) / length(trainingExamples)
-				* calculateEntropy(childrenExamples["Positive"])
+				* heuristicAlgo(childrenExamples["Positive"])
 			- length(childrenExamples["Negative"]) / length(trainingExamples)
-				* calculateEntropy(childrenExamples["Negative"])
+				* heuristicAlgo(childrenExamples["Negative"])
 		gainz.append(gain)
 	maxGainz = gainz.index(max(gainz))
 	return attributes[maxGainz]
 		
-def calculateEntropy(trainingExamples):
-	numberOf = countPositiveNegativeTotal(trainingExamples)
+def calculateEntropy(examples):
+	numberOf = countPositiveNegativeTotal(examples)
 	pPos = numberOf["Positive"] / numberOf["Total"]
 	pNeg = numberOf["Negative"] / numberOf["Total"]
 	return -(pPos * log(pPos, 2) + pNeg * log(pNeg, 2))
+	
+def calculateVarianceImpurity(examples):
+	numberOf = countPositiveNegativeTotal(examples)
+	return numberOf["Positive"]*numberOf["Negative"]
+			/
+			numberOf["Total"]/numberOf["Total"]
+	
 		
 def positiveOrNegative(examples):
 	numberOf = countPositiveNegativeTotal(examples)

@@ -1,7 +1,7 @@
 #Currently need to:
 #	test bestClassifier
 #	test splitExamples
-#	complete DecisionTree ID3 algo / initialization
+#	fix print out
 
 #run with
 #python assignment1.py 0 0 training_set.csv validation_set.csv test_set.csv yes
