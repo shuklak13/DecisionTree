@@ -4,23 +4,36 @@ from ID3supplementalFunctions import *
 	#So I don't need all that dictionary magic
 class DecisionTree(Tree):
 	def __init__(self, attributes, trainingSet):
+		
 		self.attributes = attributes
 		
 		terminate = testForTermination(attributes, trainingSet)
 		if terminate is not False:
 			return terminate
 	
-		self.decisionAttribute = bestClassifier()	#incomplete
+		self.decisionAttribute = bestClassifier()
 		
+		self.children = createChildren(attributes, trainingSet)
+		
+		
+	def createChildren(self, attributes, trainingSet):
 		childrenExamples = splitExamples(trainingSet, 
 						attributes.index(self.decisionAttribute))
 						
 		childrenAttributes = attributes
 		childrenAttributes.remove(self.decisionAttribute)
 		
-		self.children = [DecisionTree(childrenAttributes, childrenExamples["Positive"]),
-					DecisionTree(childrenAttributes, childrenExamples["Negative"])]
+		self.children = createChildren(attributes, trainingSet)
 		
-		#MAKE NEW CHILD FOR EACH SPLIT EXAMPLE
-		
+		if length(childrenExamples["Positive"])==0:
+			leftChild = positiveOrNegative(trainingSet)
+		else:
+			leftChild = DecisionTree(childrenAttributes, childrenExamples["Positive"])
+			
+		if length(childrenExamples["Negative"])==0:
+			rightChild = positiveOrNegative(trainingSet)
+		else:
+			rightChild = DecisionTree(childrenAttributes, childrenExamples["Negative"])
+			
+		return [leftChild, rightChild]
 		

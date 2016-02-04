@@ -1,45 +1,25 @@
-#STILL NEED TO MAKE	
-def bestClassifier(attributes):
-	if len(attributes>1):
-		return attributes[0]
-	else:
-		return None
+from math import log
+
+def bestClassifier(attributes, trainingExamples):
+	entropy = calculateEntropy(trainingExamples)
+	gainz = []
+	for attrIndex in 0:(length(attributes)-1):
+		childrenExamples = splitExamples(trainingExamples, attrIndex)
+		gain = entropy 
+			- length(childrenExamples["Positive"]) / length(trainingExamples)
+				* calculateEntropy(childrenExamples["Positive"])
+			- length(childrenExamples["Negative"]) / length(trainingExamples)
+				* calculateEntropy(childrenExamples["Negative"])
+		gainz.append(gain)
+	maxGainz = gainz.index(max(gainz))
+	return attributes[maxGainz]
 		
-def terminate(attributes, trainingSet):
-	uniformityResults = testUniformity(trainingSet)
-	if uniformityResults is not None:
-		return uniformityResults
-
-	attributesResults = testAttributes(attributes, trainingSet)
-	if attributesResults is not None:
-		return attributesResults
+def calculateEntropy(trainingExamples):
+	numberOf = countPositiveNegativeTotal(trainingExamples)
+	pPos = numberOf["Positive"] / numberOf["Total"]
+	pNeg = numberOf["Negative"] / numberOf["Total"]
+	return -(pPos * log(pPos, 2) + pNeg * log(pNeg, 2))
 		
-	return False
-
-def testUniformity(trainingSet):
-	uniformity = isUniform(trainingSet)
-	if uniformity is not False:
-		if uniformity == "Positive":
-			return decisionTree(1)
-		if uniformity == "Negative":
-			return decisionTree(0)
-	return None
-
-def testAttributes(attributes, trainingSet):
-	if len(attributes) <= 1:
-		polarity = positiveOrNegative(trainingSet)
-		if polarity == "Positive":
-			return decisionTree(1)
-		if polarity == "Negative":
-			return decisionTree(0)
-	return None
-
-def isUniform(trainingSet):
-	numberOf = countPositiveNegativeTotal(trainingSet)
-	if 	numberOf["Positive"] == numberOf["Total"]:	return "Positive"
-	elif 	numberOf["Negative"] == numberOf["Total"]:	return "Negative"
-	else:												return False
-
 def positiveOrNegative(examples):
 	numberOf = countPositiveNegativeTotal(examples)
 	if numberOf["Positive"] > numberOf["Negative"]:
@@ -57,14 +37,17 @@ def countPositiveNegativeTotal(examples, index = -1):
 	return {"Positive": positive, 
 		"Negative": size - positive, "Total": size}
 
-#DOES THIS WORK??? TEST IT
-def splitExamples(examples, index):
+#splits example and removes split attribute
+def splitExamples(examples, attrIndex):
 	posEx = []
 	negEx = []
 	for example in examples:
-		attrVal = example.pop(index)
+		attrVal = example.pop(attrIndex)
 		if attrVal = "0":
 			negEx.append(example)
 		if attrVal = "1":
 			posEx.append(example)
       return {"Positive": posEx, "Negative": negEx}
+
+
+from testingForTermination.py import *
