@@ -6,8 +6,7 @@
 #change directory with
 #cd C:\Users\Karan\SkyDrive\School\MachineLearning\hw1
 	#or
-#import os
-#os.chdir(C:\Users\Karan\SkyDrive\School\MachineLearning\hw1)
+#import os; os.chdir("C:\Users\Karan\SkyDrive\School\MachineLearning\hw1")
 
 #run with
 #python assignment1.py 0 0 training_set.csv validation_set.csv test_set.csv yes
@@ -15,6 +14,7 @@
 from sys import argv
 import csv
 from ID3 import *
+import bestClassifier
 
 ##############################################################################
 
@@ -33,6 +33,8 @@ for example in trainingSetFile:
 
 dTree = DecisionTree(attributes, trainingSet)
 dTree.printOut()
+dTreeVI = DecisionTree(attributes, trainingSet, bestClassifier.calculateVarianceImpurity)
+dTreeVI.printOut()
 
 validationSet = argv[4]
 testSet = argv[5]
