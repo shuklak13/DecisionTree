@@ -3,6 +3,12 @@
 #	test splitExamples
 #	fix print out
 
+#change directory with
+#cd C:\Users\Karan\SkyDrive\School\MachineLearning\hw1
+	#or
+#import os
+#os.chdir(C:\Users\Karan\SkyDrive\School\MachineLearning\hw1)
+
 #run with
 #python assignment1.py 0 0 training_set.csv validation_set.csv test_set.csv yes
 
