@@ -14,8 +14,8 @@ def testForTermination(attributes, trainingSet):
 #tests if all examples are positive or negative
 def testUniformity(trainingSet):
 	numberOf = countPositiveNegativeTotal(trainingSet)
-	if 	numberOf["Positive"] == numberOf["Total"]:	return "Positive"
-	elif numberOf["Negative"] == numberOf["Total"]:	return "Negative"
+	if 	numberOf["1"] == numberOf["Total"]:	return "1"
+	elif numberOf["0"] == numberOf["Total"]:	return "0"
 	else:	return False
 
 #tests if there is all attributes have been exhausted

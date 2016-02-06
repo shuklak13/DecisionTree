@@ -23,18 +23,18 @@ class DecisionTree(object):
 		
 		childrenExamples = splitExamples(trainingSet, 
 						decisAttrIndex)
-		for example in childrenExamples["Positive"]:
+		for example in childrenExamples["1"]:
 			del example[decisAttrIndex]
-		for example in childrenExamples["Negative"]:
+		for example in childrenExamples["0"]:
 			del example[decisAttrIndex]
 			
 		childrenAttributes = attributes
 		childrenAttributes.remove(self.decisionAttribute)
 		
 		leftChild = DecisionTree(childrenAttributes,
-					childrenExamples["Positive"], level=self.level+1)
+					childrenExamples["1"], level=self.level+1)
 		rightChild = DecisionTree(childrenAttributes, 
-					childrenExamples["Negative"], level=self.level+1)
+					childrenExamples["0"], level=self.level+1)
 			
 		return [leftChild, rightChild]
 				

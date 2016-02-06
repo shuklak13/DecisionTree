@@ -4,8 +4,8 @@ from ID3supplementalFunctions import countPositiveNegativeTotal, splitExamples
 def calculateEntropy(examples):
 	#print "calculating entropy"
 	numberOf = countPositiveNegativeTotal(examples)
-	pPos = float(numberOf["Positive"]) / float(numberOf["Total"])
-	pNeg = float(numberOf["Negative"]) / float(numberOf["Total"])
+	pPos = float(numberOf["1"]) / float(numberOf["Total"])
+	pNeg = float(numberOf["0"]) / float(numberOf["Total"])
 	#print "pPos: " + str(pPos) + " pNeg: " + str(pNeg)
 	if pPos==0:
 		return -pNeg * log(pNeg, 2)
@@ -16,7 +16,7 @@ def calculateEntropy(examples):
 	
 def calculateVarianceImpurity(examples):
 	numberOf = countPositiveNegativeTotal(examples)
-	return (numberOf["Positive"]*numberOf["Negative"]
+	return (numberOf["1"]*numberOf["0"]
 			/
 			numberOf["Total"]/numberOf["Total"] )
 			
@@ -36,16 +36,16 @@ def bestClassifier(attributes, trainingExamples, heuristicAlgo = calculateEntrop
 		else:
 			gain = (
 				heuristic 
-				- len(childrenExamples["Positive"]) / len(trainingExamples)
-					* heuristicAlgo(childrenExamples["Positive"])
-				- len(childrenExamples["Negative"]) / len(trainingExamples)
-					* heuristicAlgo(childrenExamples["Negative"])
+				- len(childrenExamples["1"]) / len(trainingExamples)
+					* heuristicAlgo(childrenExamples["1"])
+				- len(childrenExamples["0"]) / len(trainingExamples)
+					* heuristicAlgo(childrenExamples["0"])
 					)
 		gainz.append(gain)
 	maxGainz = gainz.index(max(gainz))
 	return attributes[maxGainz]
 	
 def isEmptyChild(childrenExamples):
-	return (len(childrenExamples["Positive"]) == 0
+	return (len(childrenExamples["1"]) == 0
 			or
-			len(childrenExamples["Negative"]) == 0)
+			len(childrenExamples["0"]) == 0)

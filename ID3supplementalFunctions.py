@@ -1,9 +1,9 @@
 def positiveOrNegative(examples):
 	numberOf = countPositiveNegativeTotal(examples)
-	if numberOf["Positive"] > numberOf["Negative"]:
-		return "Positive"
+	if numberOf["1"] > numberOf["0"]:
+		return "1"
 	else:
-		return "Negative"
+		return "0"
 
 def countPositiveNegativeTotal(examples, index = -1):
 	size = 0
@@ -15,8 +15,8 @@ def countPositiveNegativeTotal(examples, index = -1):
 #	print "Positive: " + str(positive) + \
 #		"\tNegative: " + str(size - positive) + \
 #		"\tTotal: " + str(size)
-	return {"Positive": positive, 
-		"Negative": size - positive, "Total": size}
+	return {"1": positive, 
+		"0": size - positive, "Total": size}
 
 #splits example and removes split attribute
 def splitExamples(examples, attrIndex):
@@ -28,4 +28,4 @@ def splitExamples(examples, attrIndex):
 			negEx.append(example)
 		if attrVal == "1":
 			posEx.append(example)
-	return {"Positive": posEx, "Negative": negEx}
+	return {"1": posEx, "0": negEx}
