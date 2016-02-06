@@ -1,6 +1,7 @@
 import os; os.chdir("C:\Users\Karan\SkyDrive\School\MachineLearning\hw1")
 import csv
 from ID3 import *
+import bestClassifier
 
 attributes = []
 
@@ -10,7 +11,6 @@ for example in trainingSetFile:
 	if len(attributes) == 0:
 		attributes = example
 	else:
-		print example
 		trainingSet.append(example)
 
 dTree = DecisionTree(attributes, trainingSet)

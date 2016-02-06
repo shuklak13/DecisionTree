@@ -4,7 +4,6 @@ def testForTermination(attributes, trainingSet):
 	uniformityResults = testUniformity(trainingSet)
 	if uniformityResults is not False:
 		return uniformityResults
-	print "The tree is not uniform"
 
 	attributesResults = testAttributes(attributes, trainingSet)
 	if attributesResults is not False:

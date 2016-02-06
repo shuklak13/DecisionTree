@@ -2,11 +2,11 @@ from math import log
 from ID3supplementalFunctions import countPositiveNegativeTotal, splitExamples
 		
 def calculateEntropy(examples):
-	print "calculating entropy"
+	#print "calculating entropy"
 	numberOf = countPositiveNegativeTotal(examples)
 	pPos = float(numberOf["Positive"]) / float(numberOf["Total"])
 	pNeg = float(numberOf["Negative"]) / float(numberOf["Total"])
-	print "pPos: " + str(pPos) + " pNeg: " + str(pNeg)
+	#print "pPos: " + str(pPos) + " pNeg: " + str(pNeg)
 	if pPos==0:
 		return -pNeg * log(pNeg, 2)
 	elif pNeg==0:
@@ -27,9 +27,9 @@ def bestClassifier(attributes, trainingExamples, heuristicAlgo = calculateEntrop
 	heuristic = heuristicAlgo(trainingExamples)
 	gainz = []
 	for attrIndex in range(len(attributes)-1):
-		print "\nChecking attribute " + str(attrIndex+1)
-		print "Number of Attributes: " + str(len(attributes)-1)
-		print "Length of examples: " + str(len(trainingExamples[0])-1)
+#		print "\nChecking attribute " + str(attrIndex+1)
+#		print "Number of Attributes: " + str(len(attributes)-1)
+#		print "Length of examples: " + str(len(trainingExamples[0])-1)
 		childrenExamples = splitExamples(trainingExamples, attrIndex)
 		if isEmptyChild(childrenExamples):
 			gain = 0
