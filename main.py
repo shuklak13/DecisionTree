@@ -1,7 +1,7 @@
 #Currently need to:
-#	test bestClassifier
-#	test splitExamples
-#	fix print out
+#	fix accuracy on variance impurity method (gives bad result on training set 4)
+#	post-pruning
+#	 	count non leaf nodes
 
 #change directory with
 #cd C:\Users\Karan\SkyDrive\School\MachineLearning\hw1

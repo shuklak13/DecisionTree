@@ -3,7 +3,7 @@ from testingForTermination import *
 from bestClassifier import *
 
 class DecisionTree(object):
-	def __init__(self, attributes, trainingSet, heuristicAlgo = calculateEntropy, level=0):
+	def __init__(self, attributes = None, trainingSet = None, heuristicAlgo = calculateEntropy, level=0):
 		self.level = level
 		self.attributes = attributes
 		terminate = testForTermination(attributes, trainingSet)
@@ -37,6 +37,11 @@ class DecisionTree(object):
 					childrenExamples["0"], level=self.level+1)
 			
 		return [leftChild, rightChild]
+		
+	def pruneNode(self, P):
+		prunedNode = #???
+		majorityClass = positiveOrNegative(prunedNode)
+			
 				
 	def isLeaf(self):
 		if self.children is None:
@@ -56,4 +61,4 @@ class DecisionTree(object):
 						" = 1: " + self.children[0].__repr__())
 			
 		return output
-		
+	
