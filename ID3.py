@@ -6,6 +6,7 @@ class DecisionTree(object):
 	def __init__(self, attributes = None, trainingSet = None, heuristicAlgo = calculateEntropy, level=0):
 		self.level = level
 		self.attributes = attributes
+		self.examples = trainingSet
 		terminate = testForTermination(attributes, trainingSet)
 		if terminate is not False:
 			self.decisionAttribute = None
@@ -38,11 +39,19 @@ class DecisionTree(object):
 			
 		return [leftChild, rightChild]
 		
-	def pruneNode(self, P):
-		prunedNode = #???
-		majorityClass = positiveOrNegative(prunedNode)
-			
-				
+	def prune(self):
+		self.children = None
+		self.classification = positiveOrNegative(self.examples)
+	
+	def getNonLeafNodes(self):
+		nodes = [self]
+		if not self.children[0].isLeaf():
+			nodes.extend(self.children[0].getNonLeafNodes())
+		if not self.children[1].isLeaf():
+			nodes.extend(self.children[1].getNonLeafNodes())
+		return nodes
+		
+		
 	def isLeaf(self):
 		if self.children is None:
 			return True

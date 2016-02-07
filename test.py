@@ -16,5 +16,12 @@ for example in trainingSetFile:
 dTree = DecisionTree(attributes, trainingSet)
 dTree.printOut()
 
+dTree.prune()
+dTree.printOut()
+
 dTreeVI = DecisionTree(attributes, trainingSet, bestClassifier.calculateVarianceImpurity)
+dTreeVI.printOut()
+
+dTreeVI.children[0].prune()	#DOESN'T WORK!?!?!?!?!?!?!?
+							#probably something to do with reference objects???
 dTreeVI.printOut()
