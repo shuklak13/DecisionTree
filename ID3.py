@@ -41,7 +41,6 @@ class DecisionTree(object):
 		return [leftChild, rightChild]
 		
 	def prune(self):
-		#print "pruned node " + self.__repr__()
 		self.children = None
 		self.classification = positiveOrNegative(self.examples)
 		
@@ -69,10 +68,11 @@ class DecisionTree(object):
 	
 	def getNonLeafNodes(self):
 		nodes = [self]
-		if not self.children[0].isLeaf():
-			nodes.extend(self.children[0].getNonLeafNodes())
-		if not self.children[1].isLeaf():
-			nodes.extend(self.children[1].getNonLeafNodes())
+		if not self.isLeaf():
+			if not self.children[0].isLeaf():
+				nodes.extend(self.children[0].getNonLeafNodes())
+			if not self.children[1].isLeaf():
+				nodes.extend(self.children[1].getNonLeafNodes())
 		return nodes
 		
 		

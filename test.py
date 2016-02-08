@@ -1,7 +1,8 @@
 import os; os.chdir("C:\Users\Karan\SkyDrive\School\MachineLearning\hw1")
 import csv
 from ID3 import *
-import bestClassifier
+from bestClassifier import calculateVarianceImpurity
+from postPruning import *
 
 attributes = []
 
@@ -20,15 +21,17 @@ for example in testSetFile:
 del testSet[0]
 
 dTree = DecisionTree(attributes, trainingSet)
-dTree.printOut()
+#dTree.printOut()
 print str(dTree.accuracy(testSet))
 
-dTree.prune()
-dTree.printOut()
+dTree = postPruning(20, 20, dTree, testSet)
+#dTree.printOut()
+print str(dTree.accuracy(testSet))
 
-dTreeVI = DecisionTree(attributes, trainingSet, bestClassifier.calculateVarianceImpurity)
-dTreeVI.printOut()
+dTreeVI = DecisionTree(attributes, trainingSet, calculateVarianceImpurity)
+#dTreeVI.printOut()
 print str(dTreeVI.accuracy(testSet))
 
-dTreeVI.children[1].prune()
-dTreeVI.printOut()
+dTreeVI = postPruning(20, 20, dTreeVI, testSet)
+#dTreeVI.printOut()
+print str(dTree.accuracy(testSet))
