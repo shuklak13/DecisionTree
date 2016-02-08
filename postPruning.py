@@ -14,13 +14,3 @@ def postPruning(L, K, dTree, testExamples):
 		if accuracy(newDTree) > accuracy(bestDTree):
 			bestDTree = newDTree
 	return bestDTree
-	
-def accuracy(dTree, testExamples):
-	correct = 0.0
-	total = 0.0
-	for example in testExamples:
-		total += 1
-		if dTree.classify(example) == example[-1]:
-			correct += 1
-	return correct/total
-		

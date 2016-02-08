@@ -12,9 +12,6 @@ def countPositiveNegativeTotal(examples, index = -1):
 		size += 1
 		if example[index] == "1":
 			positive += 1
-#	print "Positive: " + str(positive) + \
-#		"\tNegative: " + str(size - positive) + \
-#		"\tTotal: " + str(size)
 	return {"1": positive, 
 		"0": size - positive, "Total": size}
 

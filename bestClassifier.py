@@ -27,9 +27,6 @@ def bestClassifier(attributes, trainingExamples, heuristicAlgo = calculateEntrop
 	heuristic = heuristicAlgo(trainingExamples)
 	gainz = []
 	for attrIndex in range(len(attributes)-1):
-#		print "\nChecking attribute " + str(attrIndex+1)
-#		print "Number of Attributes: " + str(len(attributes)-1)
-#		print "Length of examples: " + str(len(trainingExamples[0])-1)
 		childrenExamples = splitExamples(trainingExamples, attrIndex)
 		if isEmptyChild(childrenExamples):
 			gain = 0
