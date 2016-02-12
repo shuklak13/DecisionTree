@@ -1,0 +1,85 @@
+	---Reports of Accuracy---
+
+I used L values of 15 and 50, and K values of 35, 45, 55, 65, and 75.
+
+I found that when L=15, my decision tree was less likely to see an change in accuracy from the unpruned tree.
+My theory is that the pruned decision trees only rarely have superior accuracy compared to the original tree. When creating only 15 pruned decision trees, we do not have enough pruned decision trees to find one with superior accuracy.
+
+Despite measuring a wide range of K values, the K value did not seem to have much of an impact on the tree's accuracy.
+
+Overall, pruning did not seem to significantly change my tree's accuracy.
+The largest reported improvement was found with L=50, K=75 on the Entropy tree on data set 2.
+The unpruned accuracy was 0.72333, and the pruned accuracy 0.74667. The improvement was a little over 2 percent.
+
+The following is my accuracy on data sets 1 and 2,
+both on the unpruned and pruned decision trees.
+
+Data Set 1
+	Unpruned
+		Entropy: 0.7585
+		Variance Impurity: 0.7585
+	L = 15, K = 35
+		Entropy: 0.7635
+		Variance Impurity: 0.7535
+	L = 15, K = 45
+		Entropy: 0.7585
+		Variance Impurity: 0.7585
+	L = 15, K = 55
+		Entropy: 0.765
+		Variance Impurity: 0.7585
+	L = 15, K = 65
+		Entropy: 0.7585
+		Variance Impurity: 0.7585
+	L = 15, K = 75
+		Entropy: 0.754
+		Variance Impurity: 0.7585
+	L = 50, K = 35
+		Entropy: 0.768
+		Variance Impurity: 0.7675
+	L = 50, K = 45
+		Entropy: 0.7595
+		Variance Impurity: 0.759
+	L = 50, K = 55
+		Entropy: 0.7585
+		Variance Impurity: 0.7615
+	L = 50, K = 65
+		Entropy: 0.763
+		Variance Impurity: 0.7685
+	L = 50, K = 75
+		Entropy: 0.758
+		Variance Impurity: 0.7605
+
+Data Set 2
+	Unpruned
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 15, K = 35
+		Entropy: 0.72333
+		Variance Impurity: 0.72667
+	L = 15, K = 45
+		Entropy: 0.72667
+		Variance Impurity: 0.72333
+	L = 15, K = 55
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 15, K = 65
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 15, K = 75
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 50, K = 35
+		Entropy: 0.738333
+		Variance Impurity: 0.735
+	L = 50, K = 45
+		Entropy: 0.74
+		Variance Impurity: 0.72
+	L = 50, K = 55
+		Entropy: 0.72333
+		Variance Impurity: 0.72
+	L = 50, K = 65
+		Entropy: 0.721667
+		Variance Impurity: 0.73
+	L = 50, K = 75
+		Entropy: 0.74667
+		Variance Impurity: 0.72333

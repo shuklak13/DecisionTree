@@ -1,8 +1,3 @@
-#change directory with
-#cd C:\Users\Karan\SkyDrive\School\MachineLearning\hw1
-	#or
-#import os; os.chdir("C:\Users\Karan\SkyDrive\School\MachineLearning\hw1")
-
 #run with
 #python main.py 20 20 training_set.csv validation_set.csv test_set.csv yes
 

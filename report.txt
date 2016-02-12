@@ -1,0 +1,71 @@
+Reports of Accuracy
+
+Data Set 1
+	Unpruned
+		Entropy: 0.7585
+		Variance Impurity: 0.7585
+	L = 15, K = 35
+		Entropy: 0.7635
+		Variance Impurity: 0.7535
+	L = 15, K = 45
+		Entropy: 0.7585
+		Variance Impurity: 0.7585
+	L = 15, K = 55
+		Entropy: 0.765
+		Variance Impurity: 0.7585
+	L = 15, K = 65
+		Entropy: 0.7585
+		Variance Impurity: 0.7585
+	L = 15, K = 75
+		Entropy: 0.754
+		Variance Impurity: 0.7585
+	L = 50, K = 35
+		Entropy: 0.768
+		Variance Impurity: 0.7675
+	L = 50, K = 45
+		Entropy: 0.7595
+		Variance Impurity: 0.759
+	L = 50, K = 55
+		Entropy: 0.7585
+		Variance Impurity: 0.7615
+	L = 50, K = 65
+		Entropy: 0.763
+		Variance Impurity: 0.7685
+	L = 50, K = 75
+		Entropy: 0.758
+		Variance Impurity: 0.7605
+
+Data Set 2
+	Unpruned
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 15, K = 35
+		Entropy: 0.72333
+		Variance Impurity: 0.72667
+	L = 15, K = 45
+		Entropy: 0.72667
+		Variance Impurity: 0.72333
+	L = 15, K = 55
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 15, K = 65
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 15, K = 75
+		Entropy: 0.72333
+		Variance Impurity: 0.72333
+	L = 50, K = 35
+		Entropy: 0.738333
+		Variance Impurity: 0.735
+	L = 50, K = 45
+		Entropy: 0.74
+		Variance Impurity: 0.72
+	L = 50, K = 55
+		Entropy: 0.72333
+		Variance Impurity: 0.72
+	L = 50, K = 65
+		Entropy: 0.721667
+		Variance Impurity: 0.73
+	L = 50, K = 75
+		Entropy: 0.74667
+		Variance Impurity: 0.72333
